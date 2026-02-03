@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard | CyberMadad</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h1>CyberMadad</h1>
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="admin-header">
+        <h2>Admin Dashboard</h2>
+        <p>Manage users, investigators and cyber fraud cases</p>
+    </div>
+
+    <!-- STATS -->
+    <div class="cards admin-stats">
+        <div class="card">
+            <h3>👥 Total Users</h3>
+            <p>{{ users|length }}</p>
+        </div>
+
+        <div class="card">
+            <h3>🕵️ Investigators</h3>
+            <p>
+                {{
+                    users
+                    | selectattr("7", "equalto", "investigator")
+                    | list
+                    | length
+                }}
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📂 Total Cases</h3>
+            <p>{{ cases|length }}</p>
+        </div>
+    </div>
+
+    <!-- USERS LIST -->
+    <div class="admin-section">
+        <h3>Registered Users</h3>
+
+        {% for u in users %}
+        <div class="admin-row">
+            <span>{{ u[1] }}</span>
+            <span>{{ u[2] }}</span>
+            <span class="badge">{{ u[7] }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- CASES LIST -->
+    <div class="admin-section">
+        <h3>Cyber Fraud Cases</h3>
+
+        {% for c in cases %}
+        <div class="admin-row">
+            <span>Case #{{ c[0] }}</span>
+            <span>{{ c[3] }}</span>
+            <span class="badge">{{ c[6] }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 CyberMadad | Admin Control Panel
+</div>
+
+</body>
+</html>

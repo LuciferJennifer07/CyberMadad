@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Investigator Panel</h2>
+
+{% for c in cases %}
+<div class="card">
+    <p><b>Case ID:</b> {{ c[0] }}</p>
+    <p><b>Victim Name:</b> {{ c[1] }}</p>
+    <p><b>Fraud Type:</b> {{ c[2] }}</p>
+    <p><b>Description:</b> {{ c[3] }}</p>
+    <p><b>Status:</b> {{ c[4] }}</p>
+
+    {% if c[5] %}
+    <p>
+        <b>Evidence:</b>
+        <a href="/uploads/{{ c[5] }}" target="_blank">
+            View Evidence
+        </a>
+    </p>
+{% else %}
+    <p><i>No evidence uploaded</i></p>
+{% endif %}
+
+{% if c.allow_contact %}
+  <p><b>Victim Contact:</b> {{ victim_mobile }}</p>
+{% else %}
+  <p><i>Victim chose not to share contact details</i></p>
+{% endif %}
+
+</div>
+{% endfor %}
+
+{% endblock %}
