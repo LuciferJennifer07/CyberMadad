@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Submit Cyber Fraud Case</h2>
+    <p>Please provide accurate details. This platform is not a law enforcement agency.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+    <label>Fraud Type</label><br>
+    <input type="text" name="fraud" placeholder="e.g. Phishing, OTP Scam" required><br><br>
+
+    <label>Description</label><br>
+    <textarea name="description" placeholder="Explain what happened..." required></textarea><br><br>
+
+    <label>Evidence (Screenshot / PDF)</label><br>
+    <input type="file" name="evidence" required><br><br>
+
+    <!-- 👇 CONSENT CHECKBOX -->
+    <label style="font-size:14px;">
+        <input type="checkbox" name="allow_contact">
+        I allow investigators to contact me regarding this case
+    </label>
+    <br><br>
+
+    <!-- 👇 SUBMIT BUTTON (IMPORTANT) -->
+    <button type="submit" class="btn">Submit Case</button>
+
+</form>
+
+</div>
+
+{% endblock %}

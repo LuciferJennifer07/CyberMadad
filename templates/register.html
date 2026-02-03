@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | CyberMadad</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <p>Join CyberMadad securely</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="text" name="mobile" placeholder="Mobile Number" required>
+            <input type="text" name="aadhaar" placeholder="Aadhaar last 4 digits" maxlength="4" required>
+            <input type="file" name="photo" required>
+            <select name="role" required>
+    <option value="">Select Registration Type</option>
+    <option value="victim">Victim (Fraud Affected)</option>
+    <option value="investigator">Investigator (Cyber Student)</option>
+</select>
+
+            <input type="password" name="password" placeholder="Create Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="auth-link">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
